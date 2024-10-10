@@ -43,7 +43,6 @@ async function sendRequest() {
     var htmlContent = renderApiResult(data.result);
     answer.innerHTML = htmlContent;
     console.log(data);
-    answer.innerHTML = data.result;
   } catch (error) {
     console.log(error);
     answer.innerHTML = "An error occurred. Please try again.";
