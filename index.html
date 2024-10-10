@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Tambahkan Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gray-300 flex items-center justify-center min-h-screen font-serif text-gray-800"
+  >
+    <!-- Kontainer Utama -->
+    <div
+      class="p-8 bg-white border border-gray-400 rounded-lg shadow-2xl max-w-lg w-full"
+      style="border-radius: 1rem; border: 2px solid #d3bfa0"
+    >
+      <h1
+        class="text-4xl font-bold text-center mb-6"
+        style="color: #5d4037; letter-spacing: 0.05em"
+      >
+        Ai by Widipe
+      </h1>
+
+      <!-- Div untuk Menampilkan Jawaban -->
+      <div
+        id="answer"
+        class="p-6 mb-4 text-left bg-white rounded-lg shadow-inner"
+        style="
+          font-style: italic;
+          min-height: 100px;
+          line-height: 1.6;
+          border: 1px solid #e1e1e1;
+          background: #faf5ef;
+        "
+      >
+        <!-- Jawaban akan muncul di sini -->
+      </div>
+
+      <!-- Input dan Tombol -->
+      <div class="flex flex-col gap-4">
+        <input
+          type="text"
+          id="question"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-600"
+          style="
+            background-color: #f9f9f6;
+            border-radius: 0.75rem;
+            border: 1px solid #bdbdbd;
+          "
+          placeholder="Masukkan pertanyaan Anda..."
+        />
+        <button
+          onclick="sendRequest()"
+          id="submitButton"
+          class="w-full bg-[#6D4C41] text-white py-2 rounded-lg flex justify-center items-center gap-2 hover:bg-[#5D4037] transition-all duration-300 shadow-lg"
+          style="
+            font-weight: bold;
+            border-radius: 0.75rem;
+            padding: 0.5rem 1rem;
+          "
+        >
+          Kirim
+          <div
+            id="loadingSpinner"
+            class="hidden animate-spin border-t-2 border-r-2 border-white border-opacity-50 w-4 h-4 rounded-full"
+          ></div>
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
