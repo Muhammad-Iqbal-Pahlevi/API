@@ -40,6 +40,9 @@ async function sendRequest() {
     }
 
     const data = await response.json();
+    var htmlContent = renderApiResult(data.result);
+    answer.innerHTML = htmlContent;
+    console.log(data);
     answer.innerHTML = data.result;
   } catch (error) {
     console.log(error);
@@ -48,4 +51,17 @@ async function sendRequest() {
     loadingSpinner.classList.add("hidden"); // Sembunyikan loading spinner
     submitButton.disabled = false; // Aktifkan kembali tombol
   }
+}
+
+function renderApiResult(result) {
+  // Pisahkan teks berdasarkan blok kode dan teks lainnya
+  var formattedHtml = result
+    .replace(/```html([^`]+)```/g, "<pre><code>$1</code></pre>") // Mengubah blok kode menjadi <pre><code>
+    .replace(/### (.+)/g, "<h3>$1</h3>") // Mengubah heading menjadi <h3>
+    .replace(/\n/g, "<br>")
+    .replace(/\- (.+)/g, "<li>$1</li>") // Mengganti bullet point dengan <li>
+    .replace(/(\n\n)/g, "</p><p>") // Memisahkan paragraf
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  // Tambahkan wrapper <p> di awal dan akhir
+  return `<p>${formattedHtml}</p>`;
 }
