@@ -1,30 +1,7 @@
-// var question = document.getElementById("question");
-// var answer = document.getElementById("answer");
-
-// var ApiUrl = "https://widipe.com/openai";
-
-// async function sendRequest() {
-//   try {
-//     const url = `${ApiUrl}?text=${question.value}`;
-
-//     const response = await fetch(url);
-//     if (!response.ok) {
-//       throw new Error(`Request failed with status ${response.status}`);
-//     }
-
-//     const data = await response.json();
-//     answer.innerHTML = data.result;
-//     console.log(data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
 var question = document.getElementById("question");
 var answer = document.getElementById("answer");
 var loadingSpinner = document.getElementById("loadingSpinner");
 var submitButton = document.getElementById("submitButton");
-
 var ApiUrl = "https://widipe.com/openai";
 
 async function sendRequest() {
@@ -64,3 +41,5 @@ function renderApiResult(result) {
   // Tambahkan wrapper <p> di awal dan akhir
   return `<p>${formattedHtml}</p>`;
 }
+
+const dialog = document.getElementById("processingDialog");
